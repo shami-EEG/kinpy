@@ -1,0 +1,36 @@
+About
+-----
+Kinpy is a source code generator for solving Chemical Kinetic equations in Scipy using scipy.integrate.odeint. It can easily be adopted for any other integrator.
+It is *assumed* that you have a basic understanding of how to use Python, Scipy, and Matplotlib.
+
+To do this, Kinpy parses a set of Chemical equations stored in a file - aptly a file with ".k" identifier. Lines beginning with '#' are treated as comments.
+
+SAMPLE .k files
+--------------
+#enzyme.k
+#Michaelis-Menten enzyme kinetics.
+
+E + S <-> ES
+ES <-> E + P
+-------------
+#second_order.k
+#Second Order elementary reaction
+2*A <-> C
+-------------
+
+The reaction is written as shown above, '<->' indicating the conversion between reactants and products. By default, kinpy assumes that the reactions are elementary, but inividual rates for every reaction can be easily changed in the generated Python code. Just change the function v_{reaction number} to suit your needs.
+
+NOTE: The stoichiometric co-efficients should not be separated from the Chemical Species with spaces or anyother characters other than '*'. For instance '2 * A' instead of '2*A', is sure to give you some errors.
+
+Now to generate your Python code,
+
+$ {path to kinpy}/kinpy something.k
+
+This will generate a file named something.py, open this file with your favorite editor and change the rate equations and constants for individual reactions.
+
+GETTING HELP
+------------
+If you have some trouble with Kinpy, send an email to
+Akshay Srinivasan<akshaysrinivasan@gmail.com>
+Dept. of ChemE
+National Institute of Technology Karnataka, Surathkal, India

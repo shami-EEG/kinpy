@@ -52,7 +52,7 @@ for line in st.splitlines():
             mol = mol_list[1]
             stoi = int(mol_list[0])
             
-            if not chem_dict.has_key(mol):
+            if not mol in chem_dict:
                 i += 1
                 chem_dict.update({mol : i})
                 reac_dict.update({chem_dict[mol] : ""})
